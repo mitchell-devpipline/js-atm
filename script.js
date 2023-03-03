@@ -25,36 +25,45 @@ Virtual ATM Machine (OOP Project)
 
 HAVE FUN
 */
-// class User {
-//   constrcutor (first)
-// }
-// class User {
-//   constructor(firstName, lastName, password, email, balance= 0 ) {
-//     this.firstName = firstName
-//     this.lastName = lastName
-//     this.password = password
-//     this.email = email
-//     this.balance = balance
+class User {
+  constructor(firstName, lastName, password, email, balance= 0 ) {
+    this.firstName = firstName
+    this.lastName = lastName
+    this.password = password
+    this.email = email
+    this.balance = balance
 
-//   }
-//     viewBalance() {
-//     const prompt = `Welcome here is your balance.`;
-//     alert(`You're Balance is :${this.balance}`);
-//     atmMenu();
-//   }
-//     makeDeposit() {
-//     const deposit = Number(
-//       prompt("Please enter the ammount you would like to deposit")
-//     );
-//     balance = balance + deposit;
-//     let showBal = alert(`Your new balance is ${this.balance}`);
-//     atmMenu();
-//     return balance;
-//   }
-// }
+  }
 
-// const mitchell = new User ("Mitchell", "Nelson", '1234', 'mitchell@devpipeline.com', 950)
+  get viewBalance() {
+    const prompt = `Welcome here is your balance.`;
+    alert(`You're Balance is :$ ${this.balance}`);
+    atmMenu();
+  }
 
+  get makeDeposit() {
+    const deposit = Number(
+      prompt("Please enter the ammount you would like to deposit")
+      );
+      this.balance = this.balance + deposit;
+      let showBal = alert(`Your new balance is ${this.balance}`);
+      atmMenu();
+      return this.balance;
+    }
+
+  get makeWithdrawl() {
+    const withdraw = Number(
+      prompt("Please enter the ammount you would like to withdraw")
+    );
+    this.balance = this.balance - withdraw;
+    let showBal = alert(`Your new balance is ${this.balance}`);
+    atmMenu();
+    return this.balance;
+  }
+}
+
+const mitchell = new User ("Mitchell", "Nelson", '1234', 'mitchell@devpipeline.com', 950)
+// alert(mitchell.atmMenu)
 
 let balance = 50.0;
 
@@ -66,44 +75,48 @@ function atmMenu() {
     3) Make a Withdrawl
     `
   );
-  // let i;
 
   if (pickMenuOption === "1") {
-    // viewBalance(); 
+    alert(mitchell.viewBalance)
     viewBalance()
+
   } else if (pickMenuOption === "2") {
+    alert(mitchell.makeDeposit)
     makeDeposit();
+
   } else if (pickMenuOption === "3") {
+    alert(mitchell.makeWithdrawl)
     makeWithdrawl();
   }
-
-  // VIEW BALANCE
-  function viewBalance() {
-    const prompt = `Welcome here is your balance.`;
-    alert(`You're Balance is :${balance}`);
-    atmMenu();
-  }
 }
+
 atmMenu();
-
+  
+    // VIEW BALANCE
+    // function viewBalance() {
+    //   const prompt = `Welcome here is your balance.`;
+    //   alert(`You're Balance is :${balance}`);
+    //   atmMenu();
+    // }
+  
 //DEPOSIT
-function makeDeposit() {
-  const deposit = Number(
-    prompt("Please enter the ammount you would like to deposit")
-  );
-  balance = balance + deposit;
-  let showBal = alert(`Your new balance is ${balance}`);
-  atmMenu();
-  return balance;
-}
+// function makeDeposit() {
+//   const deposit = Number(
+//     prompt("Please enter the ammount you would like to deposit")
+//   );
+//   balance = balance + deposit;
+//   let showBal = alert(`Your new balance is ${balance}`);
+//   atmMenu();
+//   return balance;
+// }
 
 //WITHDRAWL
-function makeWithdrawl() {
-  const withdraw = Number(
-    prompt("Please enter the ammount you would like to withdraw")
-  );
-  balance = balance - withdraw;
-  let showBal = alert(`Your new balance is ${balance}`);
-  atmMenu();
-  return balance;
-}
+// function makeWithdrawl() {
+//   const withdraw = Number(
+//     prompt("Please enter the ammount you would like to withdraw")
+//   );
+//   balance = balance - withdraw;
+//   let showBal = alert(`Your new balance is ${balance}`);
+//   atmMenu();
+//   return balance;
+// }
